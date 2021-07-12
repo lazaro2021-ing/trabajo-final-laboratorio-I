@@ -1,0 +1,8 @@
+-colocar las api key de mp y binance en el archivo apikey.py
+
+-instalar python
+-crear entorno virtual(ir a la carpeta del proyecto python -m venv env)
+-ir a env/Script/activate
+-volver a la carpeta raiz
+-instalar paquetes (pip install -r requirements.txt)
+-python app.py(correr el servidor)

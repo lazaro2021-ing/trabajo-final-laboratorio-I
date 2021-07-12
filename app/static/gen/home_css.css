@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  /*----COLORES-----*/
+  --primary-color: #807ef9;
+  --light-color: #A8AFFF;
+  --secondary-color: #1323ff;
+  --white-color: #ffffff;
+
+  --degradado1: linear-gradient(to right, #7E7CF9, #3F3E7D);
+
+  /*----FUENTES-----*/
+  --main-font: 'Montserrat', sans-serif;
+  --xbg-font:4em;
+  --bg-font: 2.5em;
+  --md-font: 2em;
+  --r-font: 1.8em;
+  --lt-font: 1em;
+  --sm-font: 0.8em;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  font-family: var(--main-font);
+}
+body{
+  width: 100% !important;
+  height: 100vh !important;
+  position: relative;
+}
+
+/*----Background-----*/
+.contenedor{
+  background: var(--degradado1);
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.backImgs{
+  position: relative;
+}
+.backImgs .back1{
+  position: absolute;
+  right: 4em;
+  top: 8em;
+  width: 400px;
+  z-index: 3;
+}
+.backImgs .back2{
+  position: absolute;
+  right: 4em;
+  top: -1em;
+  width: 400px;
+  z-index: 2;
+}
+/*----Area texto-----*/
+.home-main{
+  margin-left: 140px;
+  padding-top: 4em;
+}
+.home-data{
+  width: 40%;
+  color: var(--white-color);
+}
+.home-data .title{
+  font-size: var(--xbg-font);
+  margin-bottom: 0.8em;
+}
+.home-data .subtitle{
+  font-size: var(--r-font);
+  margin-bottom: 1em;
+}
+.home-data .text{
+  font-size: var(--lt-font);
+  margin-bottom: 1em;
+}
+.link-to-buy{
+  color: var(--white-color);
+  text-decoration: none;
+  display: block;
+  text-decoration: underline var(--white-color);
+}
+.fa-angle-double-right{
+  margin-left: 10px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  0% {left: 0px;}; 
+  25% {left: 5px;}
+  50% {left: 15px;}
+  75% {left: -5px;}
+  100% {left: -10px;}
+}
+
+.binance-logo{
+  width: 150px;
+}
+.merca-logo{
+  width: 100px;
+}
+
+@media (max-width: 800px) {
+  body{
+    min-height: 100%;
+  }
+  .contenedor{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+  }
+  .backImgs{
+    display: flex;
+    justify-content: center;
+  }
+  .backImgs .back2{
+    display: none;
+  }
+  .home-data{
+    width: 80%;
+  }
+}
+@media (max-width: 600px){
+  .backImgs .back1{
+    padding-top: 80px;
+    width: 160px;
+    position: unset;
+  }
+  .backImgs .back2{
+    display: none;
+  }
+  .home-main{
+    padding-top: 3em;
+    margin-left: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .backImgs{
+    margin-top: 40px;
+    margin-left: unset;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px){
+  .backImgs .back1{
+    padding-top: unset;
+  }
+  .home-data .title{
+    font-size: var(--bg-font);
+    margin-bottom: 0.8em;
+  }
+  .home-data .subtitle{
+    font-size: var(--lt-font);
+    margin-bottom: 1em;
+    font-weight: 700;
+  }
+  .home-data .text{
+    font-size: var(--lt-font);
+  }
+}

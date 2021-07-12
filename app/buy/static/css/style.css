@@ -1,0 +1,87 @@
+body{
+    background-color: #96caec;
+}
+h1 {
+    color: rgb(112, 105, 105);
+    font-size: 250%;
+    font-family: 'Courier New', Courier, monospace;
+}
+h2 {
+    color: rgb(112, 105, 105);
+    font-family: 'Courier New', Courier, monospace;
+   margin: 0px;
+}
+
+p{
+    font-size: 120%;
+}
+
+table {
+    border: 1px solid #66696b;
+    background-color: hsl(0, 0%, 93%);
+    width: 100%;
+    text-align: left;
+    border-spacing: 0px;
+    border-radius: 10px;
+   
+}
+
+th,td,tr {
+    border: 1px solid #66696b;
+    padding: 0px;
+    text-align: center;
+}
+th{
+    font-size: 200%;
+}
+
+hr{
+    margin: 1px;
+    border: 2px solid #66696b;
+}
+
+img {
+    height: 10%;
+    width: 10%;
+    text-align: left;
+}
+
+.box1{
+  border-bottom: 2px solid gray;
+  background-color: #469fdb;
+  color: black;
+  display: flex;
+  align-items: flex-end;
+  padding: 5px;
+}
+.box02{
+    width: 90px;
+    height: 50px;
+    background: blue;
+  }
+
+  a { 
+    color:blue;font-weight: normal;text-decoration: none;
+    padding: 0px;
+    margin: 0px; 
+    cursor: grab;
+   } 
+ 
+   button {
+       background-color: #b0b6b9; 
+       border-radius: 10px;
+       padding: 5px;
+       text-align: center;
+       margin: 10px;
+       cursor: grab;
+   }
+   .href_color{
+       color: black;
+       
+   }
+
+ul{
+    list-style: square inside;
+    font-size: 120%;
+}
+ 

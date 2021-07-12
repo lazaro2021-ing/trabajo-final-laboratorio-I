@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+BUY
+{% endblock %}
+
+{% block content %}
+
+
+<div class="contenedor">
+    <!--SECCIÓN FORMULARIO COMPRA-->
+    <section class="buy buy__form">
+        <form id='form_buy'>
+            <h2 class="title">Realizar Compra</h2>
+            <div class="select-div">
+
+                <select name="coin" id="coin">
+                    <option selected>Seleccionar Coin</option>
+                </select>
+                <select name="red" id="red">
+                    <option selected>Seleccionar Red</option>
+                </select>
+            </div>
+
+            <input type="text" placeholder="dirección depósito" id="input_address" name="address">
+            <input type="text" placeholder="cantidad" id="input_amount" name="amount_coin">
+
+
+            <button class="buy__btn" id="btnBuy">Comprar</button>
+
+        </form>
+
+        <!--SECCIÓN MODAL-->
+        <div class="modal-confirm" id="modal">
+            <form class="confirm-form" id="confirm-form">
+
+                <div class="confirm-fields">
+                    <label class="label_modal">COIN</label>
+                    <input type="text" id="info_buy_coin" disabled class="input_info">
+                </div>
+
+                <div class="confirm-fields">
+                    <label class="label_modal">RED</label>
+                    <input type="text" id="info_buy_red" disabled class="input_info">
+                </div>
+
+                <div class="confirm-fields">
+                    <label class="label_modal">DIRECCION</label>
+                    <input type="text" id="info_buy_address" disabled class="input_info">
+                </div>
+
+                <div class="confirm-fields">
+                    <label class="label_modal">CANTIDAD</label>
+                    <input type="text" id="info_buy_amount" disabled class="input_info">
+                </div>
+
+                <div class="confirm-fields">
+                    <label class="label_modal">FEES</label>
+                    <input type="text" id="info_buy_fees" disabled class="input_info">
+                </div>
+
+                <div class="confirm-fields">
+                    <label class="label_modal">MONTO($)</label>
+                    <input type="text" id="info_buy_monto" disabled class="input_info">
+                </div>
+                <div class="modal-btn-div">
+                    <i class="fas fa-check-circle check-buy"></i>
+                    <button class="btn__submit" id="btnCancel">Salir</button>
+                    <button type="submit" class="btn__submit" id="btnConfirm">Confirmar</button>
+                </div>
+                <input type="hidden" class="form-control" id="amount_pesos" name="amount_pesos">
+            </form>
+        </div>
+    </section>
+
+    <!--SECCIÓN HISTORIAL COMPRA-->
+    <section class="buy buy__history">
+        <div class="history-header">
+            <h2 class="title">Historial</h2>
+        </div>
+        <div style="display: flex; justify-content: space-around;width: 100%;">
+            <input type="text" placeholder="dirección depósito" id="find_address" name="address" class="input_find">
+
+            <button class="find_btn" id="btnFind">BUSCAR</button>
+        </div>
+
+        <div class="history-container" id="historial">
+           
+           
+        </div>
+    </section>
+
+</div>
+
+
+
+<script type="text/javascript">
+    var data = {{ data|tojson}}
+</script>
+
+{% assets 'buy_js' %}
+<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+
+{% assets 'buy_css' %}
+<link rel="stylesheet" href="{{ ASSET_URL }}" />
+{% endassets %}
+
+{% endblock %}

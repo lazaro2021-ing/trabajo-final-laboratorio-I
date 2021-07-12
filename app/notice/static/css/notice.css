@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  /*----COLORES-----*/
+  --primary-color: #807ef9;
+  --light-color: #A8AFFF;
+  --secondary-color: #1323ff;
+  --white-color: #ffffff;
+  --light-color2:#E0E1ED;
+
+  --degradado1: linear-gradient(to right, #7E7CF9, #3F3E7D);
+
+  /*----FUENTES-----*/
+  --main-font: 'Montserrat', sans-serif;
+  --xbg-font:4em;
+  --bg-font: 2.5em;
+  --md-font: 2em;
+  --r-font: 1.8em;
+  --lt-font: 1em;
+  --sm-font: 0.8em;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box !important;
+  font-family: var(--main-font);
+}
+body{
+  width: 100% !important;
+  height: 100vh !important;
+  position: relative;;
+}
+
+.title_notice{
+    background: rgba(0.0, 0.0, 0.0, 0.5);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.contenedor{
+  width: 100%;
+  height: 100%;
+  background: var(--light-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2em;
+}
+
+/*------SECCION FORMULARIO COMPRA-------*/
+.notice{
+  background: var(--white-color);
+  border-radius: 2em;
+  height: 540px;
+}
+.notice-1panel{
+  width: 60%;
+  margin-left: 8em;
+  margin-right: 2em;
+  padding: 3em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.link-notice{
+  
+  border-radius: 8px;
+  color: var(--white-color);
+}
+.notice-title{
+  color: var(--secondary-color);
+}
+
+/*------SECCION HISTORIAL-------*/
+.notice-2panel{
+  width: 30%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.history-header{
+  background: var(--white-color);
+  position: static;
+  color: var(--secondary-color);
+}
+.history-container{
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.history__item{
+  background: var(--light-color);
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 1.5em;
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.market-icon{
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.market-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.market-info{
+  margin: 0 !important;
+}
+
+@media (max-width: 1200px){
+  .notice-1panel{
+    margin-left: 5em;
+    padding: 4em;
+
+  }
+  
+}
+@media (max-width: 800px){
+  body{
+    min-height: auto;
+  }
+  .contenedor{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+  }
+  .notice{
+    height: 540px;
+  }
+  .notice-1panel{
+    height: 500px;
+    width: 80%;
+    padding: 1em;
+    margin-left: unset;
+    margin-right: unset;
+    margin-bottom: 2rem;
+  }
+  .notice-2panel{
+    width: 80%;
+    margin-bottom: 6em;
+  }
+  .market-data h5{
+    font-size: var(--r-font);
+  }
+  .market-data p{
+    font-size: var(--lt-font);
+  }
+}
+@media (max-width: 480px){
+  .notice-1panel{
+    height: 400px;
+    width: 95%;
+    margin-left: unset;
+    margin-right: unset;
+    margin-bottom: 2rem;
+  }
+  .notice-2panel{
+    padding: 1.5rem;
+    width: 95%;
+  }
+  .history__item{
+    padding: 2px;
+  }
+  .market-data h5{
+    font-size: var(--lt-font);
+  }
+  .market-data p{
+    font-size: var(--sm-font);
+  }
+  .market-icon{
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
