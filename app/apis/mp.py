@@ -32,8 +32,6 @@ class MercadoPago:
 
        
         self.payment_created  = self.sdk.preference().create(preference_object)
-        #pref_id=self.payment_created['response']['id']
-        #self.payment_created=self.sdk.preference().update(self.payment_created["response"]["id"], {"back_urls": {"success": self.back_urls+'?pref_id='+pref_id}})
         
     def check_pay(self,mp_id):
         
