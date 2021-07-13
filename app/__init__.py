@@ -19,25 +19,16 @@ flask_app.config['MONGO_DBNAME']=f"{mongo_config['proyect_name']}"
 mongo=PyMongo(flask_app)
 
 
-from app.about.routes import mod
-from app.account.routes import mod
 from app.buy.routes import mod
 from app.home.routes import mod
-from app.login.routes import mod
-from app.market.routes import mod
 from app.notice.routes import mod
-from app.registration.routes import mod
 
 
 
-flask_app.register_blueprint(about.routes.mod,url_prefix='/about')
-flask_app.register_blueprint(account.routes.mod,url_prefix='/account')
 flask_app.register_blueprint(buy.routes.mod,url_prefix='/buy')
 flask_app.register_blueprint(home.routes.mod)
 flask_app.register_blueprint(login.routes.mod,url_prefix='/login')
-flask_app.register_blueprint(market.routes.mod,url_prefix='/market')
 flask_app.register_blueprint(notice.routes.mod,url_prefix='/notice')
-flask_app.register_blueprint(registration.routes.mod,url_prefix='/registration')
 
 assets = Environment(flask_app)
 assets.init_app(flask_app)
