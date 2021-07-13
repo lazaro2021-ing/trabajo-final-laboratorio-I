@@ -27,7 +27,6 @@ from app.notice.routes import mod
 
 flask_app.register_blueprint(buy.routes.mod,url_prefix='/buy')
 flask_app.register_blueprint(home.routes.mod)
-flask_app.register_blueprint(login.routes.mod,url_prefix='/login')
 flask_app.register_blueprint(notice.routes.mod,url_prefix='/notice')
 
 assets = Environment(flask_app)
