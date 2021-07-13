@@ -85,7 +85,6 @@ def get_historial():
 @mod.route('/pay', methods=['POST'])
 def create_url_pay():
     #set mp variables
-    print("entro pay",request.form)
 
     mp = MercadoPago(apis['mercadopago']['ACCESS_TOKEN'])
     mp.set_urls(apis['mercadopago']['notification_url'],apis['mercadopago']['back_urls'])
@@ -100,8 +99,8 @@ def create_url_pay():
                 'pref_id':'','status':'pendiente','binance_id':''}
 
     #crea una orden de pago
-    #mp.create_pay("COMPRAR "+coin, float(amount_pesos), "COMPRA:"+amount_coin+coin,data_coin)
-    mp.create_pay("COMPRAR "+coin, 5.0, "COMPRA:"+amount_coin+coin, data_coin)
+    mp.create_pay("COMPRAR "+coin, float(amount_pesos), "COMPRA:"+amount_coin+coin,data_coin)
+    #mp.create_pay("COMPRAR "+coin, 5.0, "COMPRA:"+amount_coin+coin, data_coin)
 
     # obtiene el pref id
     pref_id = mp.payment_created['response']['id']
@@ -126,22 +125,16 @@ def create_url_pay():
 
 @mod.route('/ipn', methods=['GET', 'POST'])
 def notification():
-    print('hola caroa')
     response_data = {"sucess": False,"status_code": 404}
 
-    print('request key',request.args.keys())
     keys=list(request.args.keys())
     if 'id'in keys:
         mp_id = request.args['id']
-        print(request.args['id'])
     if 'data.id'in keys:
         mp_id = request.args['data.id']
-        print(request.args['data.id'])
     
     mp = MercadoPago(apis['mercadopago']['ACCESS_TOKEN'])
     status = mp.check_pay(mp_id)
-
-    print(status)
     
     '''
     data_coin = {'coin': 'BNB', 'red': 'BSC','address': '0x91eC66Bd1fc66Ef25F1f0ec26B73B2d444D9D769', 'cantidad': 0.02,
@@ -151,7 +144,6 @@ def notification():
     '''
 
     existing_id = mongo.db.pref_id.find_one({"pref_id": status['pref_id']})
-    print('existing_id', existing_id)
     if existing_id != None:
         # es decir se acredito el pago y no se hizo la transf y si la coin esta habilitada
         if status['status'] == True and existing_id['status'] == False:
@@ -160,15 +152,15 @@ def notification():
                 #cambiamos el estado de la db a true para evitar las doble transferencias
                 mongo.db.pref_id.find_one_and_update({"pref_id": status['pref_id']}, {"$set": {'status': True}})
                
-                '''
+                
                 # ejecuta la transferencia
                 content = binance.withdraw({"coin": status['data_coin']['coin'],
                                             "address": status['data_coin']['address'],
                                             "amount": status['data_coin']['cantidad'],
                                             "network": status['data_coin']['red'],
                                             })
-                '''
-                content={'id':'1fc26329db91416cbe120194885c2f64'}
+               
+                #content={'id':'1fc26329db91416cbe120194885c2f64'}
                 if 'id' in content.keys():
                     address=mongo.db.address.find_one({"address": status['data_coin']['address']})
                     if address:
