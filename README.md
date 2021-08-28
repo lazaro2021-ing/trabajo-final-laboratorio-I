@@ -1,3 +1,5 @@
+# O
+
 # Pasos para configurar proyecto
 
 - Instalar Python
