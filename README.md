@@ -1,4 +1,4 @@
-# Objetivo de la aplicación
+# Objetivos de la aplicación
 
 - Poder ver noticias y valores de mercado relacionado a criptomonedas
 - Poder comprar criptomonedas y recibir el dinero en la dirección que el usuario especifique.
